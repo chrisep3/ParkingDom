@@ -1,0 +1,42 @@
+﻿@model Parking.Models.OwnerChangeSpotsViewModel
+
+<div class="container mt-4">
+    <h2>Καλώς ήρθατε, @Model.OwnerName!</h2>
+
+    <form asp-action="Welcome" method="post"> @*MIA FORMA GIATI OLA TA ΚΟΥΜΠΙΑ ΟΔΗΓΟΥΝ ΣΤΗΝ ΙΔΙΑ POST μεθοδο*@
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div> @*παιρνω σφάλματα τύπου: ModelState.AddModelError("", "Λάθος κωδικός ή email"); *@ 
+
+
+        <p>Ακολουθούν τα στοιχεία του Parking σας.</p>
+
+        <p>Τοποθεσία: @Model.Location</p>
+        <p>Μέγιστο πλήθος θέσεων: @Model.TotalSpots</p>
+        <p>Ελεύθερες θέσεις τη στιγμή: @Model.FreeSpots</p>
+
+
+        <h5>Στο ακόλουθο πεδίο θα δείτε τον αριθμο των κρατημένων θέσεων αυτή τη στιγμή. Πατήστε για να το αλλάξετε εφόσον επιθυμείτε.</h5>
+
+        <div class="mb-3">
+
+            <label asp-for="ReservedSpots" class="form-label">Κρατημένες θέσεις</label>
+
+            <input asp-for="ReservedSpots" class="form-control" />
+
+            <span asp-validation-for="ReservedSpots" class="text-danger"></span>
+
+        </div>
+
+        <a asp-action="Welcome" class="btn btn-danger btn-lg px-4 shadow-sm">
+             Ακύρωση
+        </a>
+
+
+         
+            <input type="hidden" asp-for="ParkingId" /> @*Στέλνω το Model.Id, ουσιαστ. το Reservation.Id*@
+            
+            <button type="submit" class="btn btn-success">Επιβεβαίωση</button>
+        </form>
+
+
+      
+</div>

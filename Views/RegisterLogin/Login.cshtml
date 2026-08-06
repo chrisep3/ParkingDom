@@ -1,0 +1,38 @@
+﻿@model Parking.Models.LoginModel
+
+<div class="container mt-4">
+    <h2>Καλώς ήρθατε!</h2>
+    <p>Συμπληρώστε τα παρακάτω πεδία:</p>
+
+    <hr />
+
+    <form asp-action="Login" method="post">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div> @*παιρνω σφάλματα τύπου: ModelState.AddModelError("", "Λάθος κωδικός ή email");*@
+
+
+       
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">Email (Username)</label>
+            <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">Κωδικός Πρόσβασης</label>
+            <input asp-for="Password" type="password" class="form-control" />
+
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+
+        </div>
+       
+        <button type="submit" class="btn btn-primary">
+            Ολοκλήρωση Σύνδεσης
+        </button>
+    </form>
+</div>
+

@@ -1,0 +1,49 @@
+﻿@model Parking.Models.RegisterModel
+
+<div class="container mt-4">
+    <h2>Καλώς ήρθατε!</h2>
+    <p>Συμπληρώστε τα παρακάτω πεδία:</p>
+
+    <hr />
+
+    <form asp-action="Register" method="post">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>  @*παιρνω σφάλματα από το: modelState.AddModelError("", error.Description); ΤΥΠΟΥ: ΔΕΝ ΥΠΑΡΧΕΙ ΑΥΤΟ ΤΟ EMAIL, Ή ΛΑΘΟΣ ΚΩΔΙΚΟΣ*@
+
+        
+        <div class="mb-3">
+            <label asp-for="FullName" class="form-label">Ονοματεπώνυμο</label>
+            <input asp-for="FullName" class="form-control" placeholder="π.χ. Χρήστος Γιαννιώτης" />
+
+            <span asp-validation-for="FullName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">Email (Username)</label>
+            <input asp-for="Email" class="form-control" placeholder="name@example.com" />
+
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label">Κωδικός Πρόσβασης</label>
+            <input asp-for="Password" type="password" class="form-control" />
+
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="ConfirmationPassword" class="form-label">Επιβεβαίωση Κωδικού</label>
+            <input asp-for="ConfirmationPassword" type="password" class="form-control" />
+
+            <span asp-validation-for="ConfirmationPassword" class="text-danger"></span> @* ΕΛΕΓΧΕΙ ΜΟΝΟ ΣΦΑΛΜΑΤΑ ΟΠΩΣ αν ΣΥΜΠΛΉΤΩΣΕ Ή ΟΧΙ ΤΟ ΠΕΔΊΟ Ο ΧΡΉΣΤΗς ΣΤΗ ΦΟΡΜΑ.*@
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Ολοκλήρωση Εγγραφής</button> @* ΕΜΦΑΝΙΖΕΙ ΛΑΘΗ ΔΟΜΙΚΟΥ ΤΥΠΟΥ ΠΧ ΗΔΗ ΥΠΑΡΧΩΝ ΕΜΕΙΛ Ή Ο κωδικός πρέπει να έχει ένα σύμβολο, π.χ. ! ή # *@
+    </form>
+
+</div>

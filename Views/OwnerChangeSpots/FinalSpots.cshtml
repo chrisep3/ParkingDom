@@ -1,0 +1,21 @@
+﻿@model Parking.Models.ParkingLot
+
+<h2>
+    Παρακάτω ακολουθούν οι πληροφορίες θέσεων του Parking σας
+</h2>
+
+<p>@Model.TotalSpots θέσεις συνολικά</p>
+<p>@Model.ReservedSpots κρατημένες θέσεις</p>
+<p>@Model.AvailableSpots διαθέσιμες θέσεις</p>
+
+<form asp-controller="RegisterLogin"
+      asp-action="Logout"
+      method="post"
+      class="mt-3">
+
+    <button type="submit"
+            class="btn btn-secondary">
+        Αποσύνδεση
+    </button>
+
+</form>

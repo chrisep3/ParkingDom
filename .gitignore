@@ -1,0 +1,21 @@
+﻿# Build output
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.csproj.user
+
+# Local SQLite database
+*.db
+*.db-shm
+*.db-wal
+
+# Archives
+*.zip
+
+# Operating system files
+.DS_Store
+Thumbs.db

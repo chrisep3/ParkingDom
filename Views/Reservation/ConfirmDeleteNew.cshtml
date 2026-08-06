@@ -1,0 +1,47 @@
+﻿@model Parking.Models.Reservation
+
+<div class="container mt-4">
+    <h2>Ακολουθούν τα στοιχεία της κράτησής σας</h2>
+    <hr />
+
+    <p>Αριθμός κράτησης: @Model.Id</p>
+    <p>Ονομασία Parking: @Model.ParkingLot.Name</p>
+    <p>Τοποθεσία Parking: @Model.ParkingLot.Location</p>
+    <p>Κόστος σε Ευρώ ανά ώρα: @Model.ParkingLot.PricePerHour</p>
+
+    <p>Μάρκα αυτοκινήτου: @Model.Make</p>
+    <p>Πινακίδα: @Model.LicencePlate</p>
+    <p>Ώρα έναρξης: @Model.StartTime</p>
+    <p>Ώρα λήξης: @Model.EndTime</p>
+
+    <a asp-action="Create"
+       class="btn btn-success"
+       style="width: 210px;">
+        ➕ Νέα Κράτηση
+    </a>
+
+    <form method="post" asp-action="Delete">
+        <input type="hidden"
+               name="id"
+               value="@Model.Id" />
+
+        <button type="submit"
+                class="btn btn-danger"
+                style="width: 210px;">
+            Διαγραφή Κράτησης
+        </button>
+    </form>
+
+    <form asp-controller="RegisterLogin"
+          asp-action="Logout"
+          method="post"
+          class="mt-2">
+
+        <button type="submit"
+                class="btn btn-secondary"
+                style="width: 210px;">
+            Αποσύνδεση
+        </button>
+    </form>
+
+</div>

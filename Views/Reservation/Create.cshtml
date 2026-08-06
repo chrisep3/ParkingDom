@@ -1,0 +1,94 @@
+﻿@model Parking.Models.ReservationParkingLotViewModel
+
+<div class="container mt-4">
+    
+
+    <hr />
+
+    <form asp-action="Create" method="post"> @*MIA FORMA GIATI OLA TA ΚΟΥΜΠΙΑ ΟΔΗΓΟΥΝ ΣΤΗΝ ΙΔΙΑ POST μεθοδο*@
+
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div> @*παιρνω CUSTOM σφάλματα που εγώ εβαλα στον controller, τύπου: 
+
+        ModelState.AddModelError("", "Ανύπαρκτο Id H StatTime>EndTime");*@
+
+        <div class="container mt-4">
+            <h2>Δημιουργία Κράτησης</h2>
+            <p>Δείτε τα διαθέσιμα πάρκινγκ και συμπληρώστε τη φόρμα από κάτω.</p>
+            <hr />
+
+            <h4 class="mb-3 text-primary">1. Διαθέσιμα Πάρκινγκ</h4>
+            <table class="table table-bordered table-striped shadow-sm mb-5">
+                <thead class="table-dark">
+                    <tr>
+                        <th style="width: 10%;">ID Πάρκινγκ</th> @*ΕΙΝΑΙ ΓΙΑ ΤΗΝ ΕΜΦΑΝΙΣΗ ΤΟΥ ΣΚΕΛΕΤΟΥ, ΤΟΥ ΑΔΕΙΟΥ ΠΙΝΑΚΑ*@
+                        <th>Όνομα</th>
+                        <th>Διεύθυνση</th>
+                        <th>Συνολικές Θέσεις</th>
+                        <th>Τιμή ανά ώρα σε Ευρώ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var lot in Model.ParkingLots) @*ParkingLots EINAI TA MONTELA MOY*@
+                    {
+                        <tr>                                                        @*ΕΙΝΑΙ ΓΙΑ ΓΕΜΙΣΜΑ ΤΟΥ ΠΙΝΑΚΑ*@
+                            <td class="fw-bold text-center bg-light">@lot.Id</td>
+                            <td>@lot.Name</td>
+                            <td>@lot.Location</td>
+                            <td>@lot.TotalSpots</td>
+                            <td>@lot.PricePerHour</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            </div>
+
+
+        <div class="mb-3">
+                
+            <label asp-for="ParkingId" class="form-label">Γράψτε το ID του Πάρκινγκ που επιθυμείτε. Π.χ. για το Parking A, πατήστε 1</label>
+            
+            <input asp-for="ParkingId" class="form-control" />
+
+            <span asp-validation-for="ParkingId" class="text-danger"></span>
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Make" class="form-label">Μάρκα, π.χ. Opel</label>
+            <input asp-for="Make" type="text" class="form-control" />
+
+            <span asp-validation-for="Make" class="text-danger"></span>
+
+
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="LicencePlate" class="form-label">Πινακίδα οχήματος</label>
+            <input asp-for="LicencePlate" type="text" class="form-control" />
+
+            <span asp-validation-for="LicencePlate" class="text-danger"></span>
+
+        </div>
+
+
+         <div class="mb-3">
+            <label asp-for="StartTime" class="form-label">Ώρα έναρξης κράτησης</label>
+                <input asp-for="StartTime" type="datetime-local" class="form-control" />    @*ΔΕΝ ΥΠΑΡΧΕΙ ΤΥΠΟΣ datetime!! MONO datetime-local *@
+
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+
+        </div>
+
+            <div class="mb-3">
+                <label asp-for="EndTime" class="form-label">Ώρα λήξης κράτησης</label>
+                <input asp-for="EndTime" type="datetime-local" class="form-control" />    @*ΔΕΝ ΥΠΑΡΧΕΙ ΤΥΠΟΣ datetime!! MONO datetime-local *@
+
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+
+            </div>
+
+
+        <button type="submit" class="btn btn-primary">Ολοκλήρωση κράτησης</button>
+    </form>
+</div>
