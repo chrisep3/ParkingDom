@@ -9,7 +9,7 @@ Users can browse participating private parking facilities, view their details an
 > 🎥 **Want to see the whole project in action?**
 > Click the following link to watch the [ParkingDom Project Walkthrough](https://youtu.be/zr0dyZh8YYI), which includes a complete application demonstration and a technical explanation of the implementation.
 >
-> ⏱️ **Short on time?** Watch from the beginning until **5:33** for a quick introduction and application demo, or jump directly to [Future Improvements & Next Steps](https://youtu.be/zr0dyZh8YYI?t=1095).
+> ⏱️ **Short on time?** Watch from the [beginning until **5:33**](https://youtu.be/zr0dyZh8YYI?t=0) for a quick introduction and application demo, or jump directly to [Future Improvements & Next Steps](https://youtu.be/zr0dyZh8YYI?t=1095).
 
 ## Features
 
